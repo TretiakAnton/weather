@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather/screens/choose_screen.dart';
+import 'package:weather/view/screens/choose_screen.dart';
 
 void main() {
   runApp(const MyApp());
