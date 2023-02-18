@@ -5,6 +5,33 @@ class WeatherData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        Row(
+          children: const [
+            Text('day: '),
+            Text('today'),
+          ],
+        ),
+        Row(
+          children: const [
+            Text('temperature: '),
+            Text('data'),
+          ],
+        ),
+        Row(
+          children: const [
+            Text('humidity: '),
+            Text('data'),
+          ],
+        ),
+        Row(
+          children: const [
+            Text('pressure: '),
+            Text('data'),
+          ],
+        ),
+      ],
+    );
   }
 }

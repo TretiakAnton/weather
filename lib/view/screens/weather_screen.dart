@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather/logic/cities_cubit.dart';
+import 'package:weather/view/widgets/weather_data_view.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({Key? key}) : super(key: key);
@@ -19,11 +20,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
         child: Column(
           children: [
             ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.vertical,
               shrinkWrap: true,
               itemBuilder: (BuildContext context, int index) {
-                return Column(
-                  children: [],
-                );
+                for (int i = 0; i < 5; i++) {}
+                return WeatherData();
               },
             ),
           ],

@@ -15,31 +15,34 @@ class _ChooseScreenState extends State<ChooseScreen> {
   @override
   Widget build(BuildContext context) {
     final bloc = context.read<CitiesCubit>();
-    return Center(
-      child: Column(
-        children: [
-          SelectState(
-            onCountryChanged: (String value) {
-              bloc.setCountry(value);
-            },
-            onStateChanged: (String value) {
-              bloc.setState(value);
-            },
-            onCityChanged: (String value) {
-              bloc.setCity(value);
-            },
-          ),
-          OutlinedButton(
-              onPressed: () {
-                if (bloc.city.isNotEmpty) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const WeatherScreen()));
-                } else {
-                  null;
-                }
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SelectState(
+              onCountryChanged: (String value) {
+                bloc.setCountry(value);
               },
-              child: const Text('Continue'))
-        ],
+              onStateChanged: (String value) {
+                bloc.setState(value);
+              },
+              onCityChanged: (String value) {
+                bloc.setCity(value);
+              },
+            ),
+            OutlinedButton(
+                onPressed: () {
+                  if (bloc.city.isNotEmpty) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const WeatherScreen()));
+                  } else {
+                    null;
+                  }
+                },
+                child: const Text('Continue'))
+          ],
+        ),
       ),
     );
   }

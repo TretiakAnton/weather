@@ -1,11 +1,11 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather/networking/weather_repo.dart';
 
 part 'cities_state.dart';
 
 class CitiesCubit extends Cubit<CitiesState> {
   CitiesCubit() : super(CitiesInitial());
-  WeatherRepo _repo = WeatherRepo();
+  final WeatherRepo _repo = WeatherRepo();
   late String _country;
   late String _state;
   late String _city;
