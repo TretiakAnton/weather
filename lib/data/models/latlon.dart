@@ -1,3 +1,7 @@
+import 'package:hive/hive.dart';
+part 'latlon.g.dart';
+
+@HiveType(typeId: 1)
 class LatLon {
   LatLon({
     required this.lat,
@@ -9,7 +13,9 @@ class LatLon {
     lon = json.first['lon'];
   }
 
+  @HiveField(0)
   late double lat;
+  @HiveField(1)
   late double lon;
 
   Map<String, dynamic> toJson() {

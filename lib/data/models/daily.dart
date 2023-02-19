@@ -38,7 +38,7 @@ class Daily {
     pressure = json['pressure'];
     humidity = json['humidity'];
     dewPoint = json['dew_point'].toDouble();
-    windSpeed = json['wind_speed'];
+    windSpeed = json['wind_speed'].toDouble();
     windDeg = json['wind_deg'];
     windGust = json['wind_gust'];
     if (json['weather'] != null) {
