@@ -7,29 +7,41 @@ class WeatherData extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: const [
-            Text('day: '),
-            Text('today'),
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: const [
+              Text('day: '),
+              Text('today'),
+            ],
+          ),
         ),
-        Row(
-          children: const [
-            Text('temperature: '),
-            Text('data'),
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: const [
+              Text('temperature: '),
+              Text('data'),
+            ],
+          ),
         ),
-        Row(
-          children: const [
-            Text('humidity: '),
-            Text('data'),
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: const [
+              Text('humidity: '),
+              Text('data'),
+            ],
+          ),
         ),
-        Row(
-          children: const [
-            Text('pressure: '),
-            Text('data'),
-          ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: const [
+              Text('pressure: '),
+              Text('data'),
+            ],
+          ),
         ),
       ],
     );

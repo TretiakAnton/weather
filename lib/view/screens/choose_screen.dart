@@ -17,31 +17,34 @@ class _ChooseScreenState extends State<ChooseScreen> {
     final bloc = context.read<CitiesCubit>();
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            SelectState(
-              onCountryChanged: (String value) {
-                bloc.setCountry(value);
-              },
-              onStateChanged: (String value) {
-                bloc.setState(value);
-              },
-              onCityChanged: (String value) {
-                bloc.setCity(value);
-              },
-            ),
-            OutlinedButton(
-                onPressed: () {
-                  if (bloc.city.isNotEmpty) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const WeatherScreen()));
-                  } else {
-                    null;
-                  }
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SelectState(
+                onCountryChanged: (String value) {
+                  bloc.setCountry(value);
                 },
-                child: const Text('Continue'))
-          ],
+                onStateChanged: (String value) {
+                  bloc.setState(value);
+                },
+                onCityChanged: (String value) {
+                  bloc.setCity(value);
+                },
+              ),
+              OutlinedButton(
+                  onPressed: () {
+                    if (bloc.city.isNotEmpty) {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const WeatherScreen()));
+                    } else {
+                      null;
+                    }
+                  },
+                  child: const Text('Continue'))
+            ],
+          ),
         ),
       ),
     );
