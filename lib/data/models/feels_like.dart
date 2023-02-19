@@ -7,10 +7,10 @@ class FeelsLike {
   });
 
   FeelsLike.fromJson(dynamic json) {
-    day = json['day'];
+    day = json['day'].toDouble();
     night = json['night'];
     eve = json['eve'];
-    morn = json['morn'];
+    morn = json['morn'].toDouble();
   }
   late double day;
   late double night;

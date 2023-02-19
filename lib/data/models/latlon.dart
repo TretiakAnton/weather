@@ -4,9 +4,9 @@ class LatLon {
     required this.lon,
   });
 
-  LatLon.fromJson(dynamic json) {
-    lat = json['lat'];
-    lon = json['lon'];
+  LatLon.fromJson(List<dynamic> json) {
+    lat = json.first['lat'];
+    lon = json.first['lon'];
   }
 
   late double lat;

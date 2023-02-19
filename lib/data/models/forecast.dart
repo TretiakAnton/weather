@@ -17,8 +17,7 @@ class Forecast {
     timezone = json['timezone'];
     timezoneOffset = json['timezone_offset'];
     if (json['current'] != null) {
-      current =
-          (json['current'] != null ? Current.fromJson(json['current']) : null)!;
+      current = Current.fromJson(json['current']);
     }
     if (json['daily'] != null) {
       daily = [];

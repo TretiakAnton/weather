@@ -1,7 +1,7 @@
 import 'package:country_state_city_picker/country_state_city_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather/logic/cities_cubit.dart';
+import 'package:weather/logic/weather_cubit.dart';
 import 'package:weather/view/screens/weather_screen.dart';
 
 class ChooseScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class ChooseScreen extends StatefulWidget {
 class _ChooseScreenState extends State<ChooseScreen> {
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<CitiesCubit>();
+    final bloc = context.read<WeatherCubit>();
     return Scaffold(
       body: Center(
         child: Padding(

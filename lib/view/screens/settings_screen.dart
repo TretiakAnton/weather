@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather/logic/cities_cubit.dart';
+import 'package:weather/logic/weather_cubit.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -12,24 +12,35 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<CitiesCubit>();
-    return BlocBuilder<CitiesCubit, CitiesState>(
-      builder: (context, state) {
-        return Column(
-          children: [
-            Row(
+    final bloc = context.read<WeatherCubit>();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: BlocBuilder<WeatherCubit, WeatherState>(
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
               children: [
-                const Text('Imperial number system'),
-                Switch(
-                    value: bloc.isImperial,
-                    onChanged: (bool value) {
-                      bloc.changeNumberSystem();
-                    })
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      const Text('Imperial number system'),
+                      Switch(
+                          value: bloc.isImperial,
+                          onChanged: (bool value) {
+                            bloc.changeNumberSystem();
+                          })
+                    ],
+                  ),
+                )
               ],
-            )
-          ],
-        );
-      },
+            ),
+          );
+        },
+      ),
     );
   }
 }

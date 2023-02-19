@@ -1,14 +1,20 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/data/models/forecast.dart';
 import 'package:weather/networking/weather_repo.dart';
 
-part 'cities_state.dart';
+part 'weather_state.dart';
 
-class CitiesCubit extends Cubit<CitiesState> {
-  CitiesCubit() : super(CitiesInitial());
+class WeatherCubit extends Cubit<WeatherState> {
+  WeatherCubit() : super(WeatherInitial()) {
+    final DateTime now = DateTime.now();
+    _today = now.weekday;
+  }
   final WeatherRepo _repo = WeatherRepo();
+  Forecast? _forecast;
   late String _country;
   late String _state;
   late String _city;
+  late int _today;
   bool _isImperial = false;
 
   String get country => _country;
@@ -19,6 +25,10 @@ class CitiesCubit extends Cubit<CitiesState> {
 
   bool get isImperial => _isImperial;
 
+  Forecast? get forecast => _forecast;
+
+  int get today => _today;
+
   void setCountry(String newCountry) {
     _country = newCountry;
   }
@@ -27,17 +37,20 @@ class CitiesCubit extends Cubit<CitiesState> {
     _state = newState;
   }
 
-  void setCity(String newCity) {
+  Future<void> setCity(String newCity) async {
     _city = newCity;
+    emit(UpdatedState());
+    await getWeather();
   }
 
-  void changeNumberSystem() {
+  Future<void> changeNumberSystem() async {
     _isImperial = !_isImperial;
     emit(UpdatedState());
+    await getWeather();
   }
 
-  getWeather() {
-    _repo.getWeather(_city, _state, _country);
+  Future<void> getWeather() async {
+    _forecast = await _repo.getWeather(_city, _state, _country, _isImperial);
     emit(UpdatedState());
   }
 }

@@ -30,14 +30,14 @@ class Daily {
     sunset = json['sunset'];
     moonrise = json['moonrise'];
     moonset = json['moonset'];
-    moonPhase = json['moon_phase'];
+    moonPhase = json['moon_phase'].toDouble();
     temp = (json['temp'] != null ? Temp.fromJson(json['temp']) : null)!;
     feelsLike = (json['feels_like'] != null
         ? FeelsLike.fromJson(json['feels_like'])
         : null)!;
     pressure = json['pressure'];
     humidity = json['humidity'];
-    dewPoint = json['dew_point'];
+    dewPoint = json['dew_point'].toDouble();
     windSpeed = json['wind_speed'];
     windDeg = json['wind_deg'];
     windGust = json['wind_gust'];
@@ -48,8 +48,8 @@ class Daily {
       });
     }
     clouds = json['clouds'];
-    pop = json['pop'];
-    uvi = json['uvi'];
+    pop = json['pop'].toDouble();
+    uvi = json['uvi'].toDouble();
   }
 
   late int dt;
@@ -68,7 +68,7 @@ class Daily {
   late double windGust;
   late List<Weather> weather;
   late int clouds;
-  late int pop;
+  late double pop;
   late double uvi;
 
   Map<String, dynamic> toJson() {

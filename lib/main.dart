@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:weather/logic/cities_cubit.dart';
+import 'package:weather/logic/weather_cubit.dart';
 import 'package:weather/view/screens/choose_screen.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CitiesCubit>(create: (context) => CitiesCubit()),
+        BlocProvider<WeatherCubit>(create: (context) => WeatherCubit()),
       ],
       child: MaterialApp(
         theme: ThemeData(

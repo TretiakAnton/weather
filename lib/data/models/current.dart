@@ -48,7 +48,7 @@ class Current {
   late int pressure;
   late int humidity;
   late double dewPoint;
-  late int uvi;
+  late double uvi;
   late int clouds;
   late int visibility;
   late double windSpeed;
@@ -70,9 +70,7 @@ class Current {
     map['visibility'] = visibility;
     map['wind_speed'] = windSpeed;
     map['wind_deg'] = windDeg;
-    if (weather != null) {
-      map['weather'] = weather.map((v) => v.toJson()).toList();
-    }
+    map['weather'] = weather.map((v) => v.toJson()).toList();
     return map;
   }
 }
