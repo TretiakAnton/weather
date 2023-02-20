@@ -1,26 +1,21 @@
 import 'dart:convert';
 
-import 'package:hive_flutter/hive_flutter.dart';
+//import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather/data/models/forecast.dart';
 import 'package:weather/data/models/latlon.dart';
 
 class WeatherRepo {
   final apiKey = '96bc4f42f4b0c861ed2e623189ccadc3';
+/*  Box cities = Hive.box('savedCities');
+  Box forecastBox = Hive.box('lastForecast');*/
 
   Future<Forecast> getWeather(
     String city,
-    String state,
-    String country,
     bool isImperial,
   ) async {
-/*    Box cities = Hive.box('savedCities');
-    Box forecastBox = Hive.box('lastForecast');*/
     String location = city;
     final String units;
-    if (country == 'USA') {
-      location += ',$state';
-    }
     if (isImperial) {
       units = 'imperial';
     } else {

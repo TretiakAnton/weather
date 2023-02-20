@@ -50,7 +50,7 @@ class WeatherCubit extends Cubit<WeatherState> {
   }
 
   Future<void> getWeather() async {
-    _forecast = await _repo.getWeather(_city, _state, _country, _isImperial);
+    _forecast = await _repo.getWeather(_city, _isImperial);
     emit(UpdatedState());
   }
 }

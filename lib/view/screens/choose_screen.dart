@@ -24,13 +24,19 @@ class _ChooseScreenState extends State<ChooseScreen> {
             children: [
               SelectState(
                 onCountryChanged: (String value) {
-                  bloc.setCountry(value);
+                  if (value != 'Choose Country') {
+                    bloc.setCountry(value);
+                  }
                 },
                 onStateChanged: (String value) {
-                  bloc.setState(value);
+                  if (value != 'Choose State') {
+                    bloc.setState(value);
+                  }
                 },
                 onCityChanged: (String value) {
-                  bloc.setCity(value);
+                  if (value != 'Choose City') {
+                    bloc.setCity(value);
+                  }
                 },
               ),
               OutlinedButton(
